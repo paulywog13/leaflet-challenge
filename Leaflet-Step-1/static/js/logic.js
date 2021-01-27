@@ -25,17 +25,17 @@ d3.json(queryUrl, function(data) {
 
 function depth_color(depth) {
     if (depth >90)
-        return "darkred";
+        return "rgb(196, 10, 10)";
     else if (depth > 70)
-        return "red";
+        return " rgb(226, 77, 8)";
     else if (depth > 50)
-        return "orange";
+        return "rgb(245, 118, 0)";
     else if (depth > 30) 
-        return "yellow";
+        return "rgb(236, 177, 12)";
     else if (depth > 10)
-        return "lime";
+        return "rgb(180, 228, 5)";
     else 
-        return "Green";
+        return "rgb(7, 224, 18)";
 }
 
 function createFeatures(earthquakeData) {
@@ -44,8 +44,9 @@ function createFeatures(earthquakeData) {
   // Give each feature a popup describing the place and time of the earthquake
   function onEachFeature(feature, layer) {
    
-    layer.bindPopup("<h3> Magnitude " + feature.properties.mag +
-      "</h3><hr><p>Depth " + feature.geometry.coordinates[2] + "(km)</p>");
+    layer.bindPopup("<h3>" + feature.properties.place +
+      "</h3><hr><p> Magnitude " + feature.properties.mag +
+      "</p><hr><p>Depth " + feature.geometry.coordinates[2] + "(km)</p>");
   }
 
 
@@ -54,7 +55,7 @@ function createFeatures(earthquakeData) {
   var earthquakes = L.geoJSON(earthquakeData, {
     pointToLayer: function(feature, earthquake_latlon) {
         return new L.circle(earthquake_latlon, {
-            radius: (feature.properties.mag) * 50000,
+            radius: (feature.properties.mag) * 40000,
             fillColor: depth_color(feature.geometry.coordinates[2]), 
             fillOpacity: 1,
             weight: 0.3,
@@ -93,26 +94,37 @@ var legend = L.control({position: 'bottomright'});
     // legend.addTo(myMap);
 
   // Define streetmap and darkmap layers
+  var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    // tileSize: 512,
+    maxZoom: 18,
+    id: "light-v10",
+    accessToken: API_KEY
+  }); 
+  
+  
+  
   var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     tileSize: 512,
     maxZoom: 18,
     zoomOffset: -1,
-    id: "mapbox/streets-v11",
+    id: "light-v10",
     accessToken: API_KEY
   });
 
-  var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "dark-v10",
-    accessToken: API_KEY
-  });
+  // var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+  //   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+  //   maxZoom: 18,
+  //   id: "dark-v10",
+  //   accessToken: API_KEY
+  // });
 
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
-    "Street Map": streetmap,
-    "Dark Map": darkmap
+    "Light Map": lightmap,
+    // "Street Map": streetmap,
+    // "Dark Map": darkmap
   };
 
   // Create overlay object to hold our overlay layer
@@ -124,14 +136,14 @@ var legend = L.control({position: 'bottomright'});
   var myMap = L.map("mapid", {
     center: [15.5994, -53.6731],
     zoom: 3,
-    layers: [streetmap, earthquakes]
+    layers: [lightmap, earthquakes]
   });
 
   // Create a layer control
   // Pass in our baseMaps and overlayMaps
   // Add the layer control to the map
   L.control.layers(baseMaps, overlayMaps, {
-    collapsed: false
+    collapsed: true
   }).addTo(myMap);
   legend.addTo(myMap);
 }
