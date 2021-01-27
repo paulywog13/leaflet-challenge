@@ -100,7 +100,7 @@ function createMap(earthquakes) {
     Earthquakes: earthquakes
   };
 
-  // Create our map, giving it the streetmap and earthquakes layers to display on load
+  // Create our map, giving it the lightmap and earthquakes layers to display on load
   var myMap = L.map("mapid", {
     center: [15.5994, -53.6731],
     zoom: 3,
