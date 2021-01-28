@@ -4,12 +4,12 @@ The goal of part 1 of this challenge was to use JavaScript, mapbox, and leaflets
 
 The goal for part 2 of this challenge was to use the information in part 1 but also to include additional basemaps, layer controls, as well as a second overlay to the map showing the boundries for techtonic plates. The layer controls needed to allow the user to choose what earthquake and tectonic plate data to display if any.  
 
-Files included in this challenge: data.csv, app.js, app2.js, index.html, style.css, d3Style.css
+Files included in this challenge: logic.js(x2), index.html(x2), style.css, settings.json
 
 Languages used: JavaScript, CSS, HTML
 
 Additional Resources used: https://leafletjs.com/examples/choropleth/, 
-https://stackoverflow.com/questions/48804842/leaflet-creating-layergroups-dynamically, https://github.com/fraxen/tectonicplates
+https://stackoverflow.com/questions/48804842/leaflet-creating-layergroups-dynamically, https://github.com/fraxen/tectonicplates, https://docs.mapbox.com/api/maps/styles/
 
 
 The app.js file contains the core/first part of the challenge creating an interactive D3 Chart comparing each states' poverty percentage to it's obesity percentage data. Along with the state abbreviation for each data point, I included a mouseover and click function for each data point. The click function displays the state's toolTip data for each point on the chart.
