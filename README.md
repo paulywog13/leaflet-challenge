@@ -9,9 +9,9 @@ Files included in this challenge: logic.js(x2), index.html(x2), style.css, setti
 Languages used: JavaScript, CSS, HTML
 
 Sites used for maps and data: 
-    maps: https://api.mapbox.com/
-    earthquake data: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
-    tectonic plates data: https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json
+maps: https://api.mapbox.com/
+earthquake data: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+tectonic plates data: https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json
 
 Additional Resources used: https://leafletjs.com/examples/choropleth/, 
 https://stackoverflow.com/questions/48804842/leaflet-creating-layergroups-dynamically, https://github.com/fraxen/tectonicplates, https://docs.mapbox.com/api/maps/styles/
