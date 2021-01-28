@@ -1,13 +1,16 @@
 # leaflet-challenge
 
-The goal of this challenge was to use JavaScript and D3 coding to read in the data of a csv file containing demographic data for all 50 states and then then to dispay the information on an html website using a D3 chart. The chart needed to display the data in a comparitive way and also needed to include the state abbreviations as identifiers.
+The goal of part 1 of this challenge was to use JavaScript, mapbox, and leaflets to read in the json data about earthquake data then to dispay the data on html website using mapbox maps and leaflet markers. The map needed to display the data markers with their size based upon the magnitude of the earthquake and the color based upon the depth of the earthquake. I also needed to make it so when the user clicked on a data marker, a tooltip would display where the earthquake was along with the magnitude and depth information. There also needed to be a legend to describe what depths the colors represented.
+
+The goal for part 2 of this challenge was to use the information in part 1 but also to include additional basemaps, layer controls, as well as a second overlay to the map showing the boundries for techtonic plates. The layer controls needed to allow the user to choose what earthquake and tectonic plate data to display if any.  
 
 Files included in this challenge: data.csv, app.js, app2.js, index.html, style.css, d3Style.css
 
 Languages used: JavaScript, CSS, HTML
 
 Additional Resources used: https://leafletjs.com/examples/choropleth/, 
-https://stackoverflow.com/questions/48804842/leaflet-creating-layergroups-dynamically
+https://stackoverflow.com/questions/48804842/leaflet-creating-layergroups-dynamically, https://github.com/fraxen/tectonicplates
+
 
 The app.js file contains the core/first part of the challenge creating an interactive D3 Chart comparing each states' poverty percentage to it's obesity percentage data. Along with the state abbreviation for each data point, I included a mouseover and click function for each data point. The click function displays the state's toolTip data for each point on the chart.
 
