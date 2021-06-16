@@ -2,7 +2,13 @@
 
 The goal of part 1 of this challenge was to use JavaScript, mapbox, and leaflets to read in the json data about earthquake data then to dispay the data on html website using mapbox maps and leaflet markers. The map needed to display the data markers with their size based upon the magnitude of the earthquake and the color based upon the depth of the earthquake. I also needed to make it so when the user clicked on a data marker, a tooltip would display where the earthquake was along with the magnitude and depth information. There also needed to be a legend to describe what depths the colors represented.
 
+![Leaflet Step One Screenshot](https://user-images.githubusercontent.com/69220393/122162446-d0194080-ce30-11eb-95f4-823bb9c13e1e.png)
+
 The goal for part 2 of this challenge was to use the information in part 1 but also to include additional basemaps, layer controls, as well as a second overlay to the map showing the boundries for techtonic plates. The layer controls needed to allow the user to choose what earthquake and tectonic plate data to display if any.  
+
+![Leaflet Step Two Screenshot A](https://user-images.githubusercontent.com/69220393/122162472-db6c6c00-ce30-11eb-8dbb-0d46d85cb218.png)
+
+![Leaflet Step Two Screenshot B](https://user-images.githubusercontent.com/69220393/122162482-defff300-ce30-11eb-92c7-ca54de6f64b7.png)
 
 Files included in this challenge: logic.js(x2), index.html(x2), style.css, settings.json
 
